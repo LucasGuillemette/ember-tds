@@ -1,15 +1,22 @@
 {{page-title "Ex1"}}
 
 <div class="card">
-  <div class="card-header bg-primary text-light">Ex1 : Note application</div>
-  <div class=""card-body>
+  <div class="card-header bg-primary text-light" >Ex1 : Note application</div>
+  <div class="card-body">
     <Textarea class="from-control" @value={{this.content}}/>
+    <button type="button" {{on "click" this.clear}}>Effacer</button>
+    <button type="button" {{on "click" this.save}}>Enregistrer</button>
+  </div>
+  <div class="alert alert-info alert-dismissible" role="alert">
+    "Nombre de caracteres restant : " {{this.size}}
+  </div>
+  <div class="alert {{this.style}}">
+    {{this.info}}
   </div>
 </div>
 
-<button {{on "click" this.clear}}>Effacer</button>
-<button {{on "click" this.save}}>Raffraichir</button>
 
-<p> {{ this.style }} </p>
+
+
 
 {{outlet}}

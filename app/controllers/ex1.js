@@ -3,16 +3,24 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
 export default class Ex1Controller extends Controller {
-  @tracked content = '';
-  @tracked info = '';
+  @tracked content = 'Default';
+  @tracked info = 'a';
   MAX = 100;
   nbRestant = 100;
 
   get size() {
-    return this.nbRestant;
+    return this.MAX - this.content.length;
   }
   get style() {
-    return this.info;
+    if (this.MAX - this.content.length > 10) {
+      return 'alert-info';
+    }
+    else if(this.MAX - this.content.length < 0){
+      return 'alert-danger';
+    }
+    else{
+      return 'alert-warning';
+    }
   }
 
   @action
@@ -21,13 +29,17 @@ export default class Ex1Controller extends Controller {
   }
 
   @action
+  enre() {
+    this.info = '';
+  }
+
+  @action
   save() {
-    this.nbRestant = this.MAX - this.content.length;
-    this.info = 'Il reste ' + this.nbRestant + ' caracteres...';
+    this.info = 'Note enregistrée';
   }
 
   @action
   update() {
-    this.update();
+    this.info = this.info + 'Note modifiée';
   }
 }
