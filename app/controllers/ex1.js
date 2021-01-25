@@ -22,7 +22,8 @@ export default class Ex1Controller extends Controller {
 
   @action
   save() {
-    this.save();
+    this.nbRestant = this.MAX - this.content.length;
+    this.info = 'Il reste ' + this.nbRestant + ' caracteres...';
   }
 
   @action

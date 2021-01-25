@@ -1,10 +1,15 @@
 {{page-title "Ex1"}}
 
-<h1>Notes</h1>
-<Input @value={{this.content}} />
+<div class="card">
+  <div class="card-header bg-primary text-light">Ex1 : Note application</div>
+  <div class=""card-body>
+    <Textarea class="from-control" @value={{this.content}}/>
+  </div>
+</div>
 
 <button {{on "click" this.clear}}>Effacer</button>
+<button {{on "click" this.save}}>Raffraichir</button>
 
-<p> {{ this.size }} </p>
+<p> {{ this.style }} </p>
 
 {{outlet}}
