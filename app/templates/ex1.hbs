@@ -3,20 +3,20 @@
 <div class="card">
   <div class="card-header bg-primary text-light" >Ex1 : Note application</div>
   <div class="card-body">
-    <Textarea class="from-control" @value={{this.content}}/>
+    <label>
+      <Textarea class="from-control" @value={{this.content}} onkeypress={{ this.update }} />
+    </label>
+    <hr>
     <button type="button" {{on "click" this.clear}}>Effacer</button>
     <button type="button" {{on "click" this.save}}>Enregistrer</button>
   </div>
   <div class="alert alert-info alert-dismissible" role="alert">
     "Nombre de caracteres restant : " {{this.size}}
   </div>
-  <div class="alert {{this.style}}">
+  <div class="alert {{this.style}}" id="info" style="display: {{ this.hide }}" >
     {{this.info}}
   </div>
 </div>
-
-
-
 
 
 {{outlet}}
