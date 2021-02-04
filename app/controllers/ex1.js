@@ -41,11 +41,11 @@ export default class Ex1Controller extends Controller {
     this.info = '';
   }
 
-  @action
+  /*action
   save() {
     this.hide = 'visible';
     this.info = 'Note enregistrée';
-  }
+  }*/
 
   @action
   update() {
