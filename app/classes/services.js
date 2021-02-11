@@ -1,6 +1,6 @@
 import { computed } from '@ember/object';
 
-export default class Services{
+export default class Services {
 
   services = [];
 
@@ -18,3 +18,14 @@ export default class Services{
     return r;*/
     return this.services.filterBy('active', true).length;
   }
+
+  get sumActive(){
+    let services = this.services.filterBy('active', true);
+    let price = 0;
+    services.forEach(service=>{
+      price += service.price;
+    });
+    return price;
+  }
+
+}

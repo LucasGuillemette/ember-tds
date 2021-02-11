@@ -1,2 +1,25 @@
 {{page-title "Ex2"}}
+<h1>Services</h1>
+<ul class="list-group">
+  {{#each @model.services as |service|}}
+    <li class="list-group-item {{if service.active 'active' ''}}"  {{action "toggleActive" service}}>
+      {{service.name}} {{service.price}} {{ format-currency }}
+    </li>
+  {{/each}}
+</ul>
+{{ plural @model.countActive
+          'Aucun service sélectionné'
+          'service sélectionné'
+          'services sélectionnés'
+}}
+<p>{{@model.sumActive}} €</p>
+
+<div>
+  <div class="input-group">
+      <span class="input-group-addon">
+        <input type="checkbox" aria-label="..." >
+      </span>
+    <input type="text" class="form-control ng-pristine ng-untouched ng-valid" aria-label="..." placeholder="Code promo" ng-keyup="">
+  </div>
+</div>
 {{outlet}}
