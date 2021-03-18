@@ -1,24 +1,29 @@
 import Route from '@ember/routing/route';
+import { action } from '@ember/object';
+import { inject as service } from '@ember/service';
 
 export default class indexRoute extends Route {
-model(){
+  model() {
     return {};
-}
+  }
 
-@action login(user) {
+  @service userAuth;
+
+  @action login(employee) {
     this.store
         .query('employee', {
-            filter: {
-                email: user.email
-            },
+          filter: {
+            email: employee.email
+          },
         })
         .then((employees) => {
-            if (employees.length) {
-                let connected = employees.firstObject;
-                if (connected.password && connected.password === user.password) {
-                    this.userAuth.login(connected);
-                    this.transitionTo('board');
-                }
+          if (employees.length) {
+            let connected = employees.firstObject;
+            if (connected.password && connected.password === employee.password) {
+              this.userAuth.login(connected);
+              this.transitionTo('board');
             }
+          }
         });
+  }
 }
