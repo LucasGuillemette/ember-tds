@@ -1,7 +1,20 @@
-{{page-title "Tds"}}
-
+{{page-title "Store"}}
 {{!-- The following component displays Ember's default welcome message. --}}
-
 {{!-- Feel free to remove this! --}}
+<div class="ui Tabular menu" id="topBar">
+  <LinkTo @route="board" class="item">Accueil</LinkTo>
+  {{#if this.userAuth.user}}
+    <LinkTo class="ui button item" @route="section">Section</LinkTo>
+    <div class="right menu">
+      <span class="ui item inverted">{{this.userAuth.user.email}}</span>
+      <button class="ui item button" {{ action "logout" }}>
+        Logout
+      </button>
+    </div>
+  {{/if}}
+</div>
 
-{{outlet}}
+<div class="ui container">
+  {{outlet}}
+</div>
+

@@ -1,0 +1,25 @@
+
+<h1 style="color: black;">Sections</h1>
+<br>
+<table>
+  <tbody>
+  {{#each @model.sections as |section|}}
+    <tr>
+      <h2 style="color: #0f0f10">{{section.name}}</h2>
+      <td class="ui collapsing" >
+        <LinkTo class="ui red icon button" @route="section.delete" @model={{section.id}} style="margin-left: 700px;">
+          Supprimer
+        </LinkTo>
+        <LinkTo class="ui icon black button" @route="section.products" @model={{section.id}}>
+          Voir produits
+        </LinkTo>
+      </td>
+    </tr>
+  {{/each}}
+  </tbody>
+</table>
+<br>
+<LinkTo @route="section.add">
+  <button class="ui black button" > Nouvelle Section</button>
+</LinkTo>
+{{outlet}}

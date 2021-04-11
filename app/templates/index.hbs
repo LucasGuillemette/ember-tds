@@ -1,3 +1,25 @@
-<Input type="email" @value={{@model.email}} placeholder="Votre email"/>
-<Input type="password" @value={{@model.password}} placeholder="Votre mot de passe"/>
-<button type="button" {{action "login" @model}}>Se connecter</button>
+{{page-title "Index"}}
+<div class="ui middle aligned center aligned grid">
+  <div class="column">
+    <h2 class="ui black image header">
+      <div class="content">
+        Connexion
+      </div>
+    </h2>
+    <form class="ui form" {{action 'connexion' this.login this.password on='submit'}}>
+      <div class="ui segment">
+        <div class="field">
+          <Input @type="text" @value={{this.login}} name="email" placeholder="E-mail address"/>
+        </div>
+        <div class="field">
+            <Input @type="password" name="password" placeholder="Password" @value={{this.password}}/>
+        </div>
+        <button class="ui fluid black submit button">Login</button>
+      </div>
+
+      <div class="ui error message"></div>
+
+    </form>
+  </div>
+</div>
+{{outlet}}

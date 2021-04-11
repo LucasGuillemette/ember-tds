@@ -1,0 +1,16 @@
+body{
+	background: cornflowerblue;
+}
+.head{
+	background-color: #ed0000;
+}
+
+.menu.links{
+	background-color: #ed0000!important;
+	padding: 10px 0;
+}
+
+.version{
+	background-color: darkblue!important;
+	color: green!important;
+}

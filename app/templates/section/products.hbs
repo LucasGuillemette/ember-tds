@@ -1,0 +1,24 @@
+{{page-title "Products"}}
+<h2>Produits</h2>
+<LinkTo @route="section.addproduct">
+  <button class="ui black button"> Ajouter produit </button>
+</LinkTo>
+{{outlet}}
+<table class="ui black table" >
+  <thead>
+  <tr>
+    <th> Nom </th>
+    <th> Prix </th>
+    <th> Promotion </th>
+
+  </tr></thead>
+  {{#each @model.section.products as |product|}}
+    <tbody>
+    <tr>
+      <td>{{product.name}}</td>
+      <td>{{product.price}}</td>
+      <td>{{product.promotion}}</td>
+
+    </tr></tbody>
+  {{/each}}
+</table>

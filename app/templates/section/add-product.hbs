@@ -1,0 +1,26 @@
+{{page-title "AddProduct"}}
+<div class="ui segment">
+  <form class="ui form">
+    <h4 class="ui dividing header">Ajouter un produit</h4>
+    <div class="field">
+      <label>Name</label>
+      <Input type="text" name="first-name" placeholder="Nom Section" @value={{@model.name}}/>
+    </div>
+
+    <UiDropdown class="selection" @selected={{@model.section}} @onChange={{fn (mut @model.section)}} as |execute mapper|>
+      <div class="default text">Packs</div>
+      <i class="dropdown icon"></i>
+      <div class="menu">
+        {{#each @model.sections as |section|}}
+          <div data-value="{{map-value mapper section}}" class="item">
+            {{section.name}}
+          </div>
+        {{/each}}
+      </div>
+    </UiDropdown>
+
+    <LinkTo class="ui button" @route="section">Annuler</LinkTo>
+    <button class="ui button"{{action 'addProduct' @model}}>Ajouter</button>
+  </form>
+</div>
+{{outlet}}

@@ -1,7 +1,7 @@
-import Model, { attr, belongsTo } from '@ember-data/model';
+import Model, { attr, hasMany } from '@ember-data/model';
 
 export default class SectionModel extends Model {
-  @attr('number') quantity;
-  @belongsTo('product') product;
-  @belongsTo('order') order;
+  @hasMany('product') products;
+  @attr('string') name;
+  @attr('string') description;
 }

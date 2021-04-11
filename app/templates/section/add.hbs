@@ -1,0 +1,14 @@
+{{page-title "Add"}}
+<div class="ui segment">
+  <form class="ui form">
+    <h4 class="ui dividing header">Ajouter une section</h4>
+    <div class="field" style="color: #0f0f10">
+      <label>Name :</label>
+      <Input type="text" class="black Focus Inverted" name="name" placeholder="Nom" style="color: #0f0f10;" @value={{@model.name}}  />
+    </div>
+    <LinkTo class="ui black button" @route="section">Annuler</LinkTo>
+    <button {{action "save" @model}} class="ui black button">Enregistrer</button>
+  </form>
+</div>
+
+{{outlet}}

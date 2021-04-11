@@ -1,8 +1,23 @@
 
-{{page-title "Sections"}}
-
-<div>
-<h1> Menu </h1> <button type="button"> employeeInfo </button>
+{{page-title "Section"}}
+<div class="ui raised segment">
+    <h1>Section</h1>
+    <LinkTo class="ui button" @route="section.add">Ajouter une section</LinkTo>
+    <LinkTo class="ui button" @route="section.addProduct">Ajouter un produit</LinkTo>
+    {{outlet}}
+</div>
+<div class="ui grid ">
+    {{#each @model as |section|}}
+        <div class="ui ten wide column">
+            <div class="ui attached segment">
+                {{section.name}}
+                <LinkTo class="ui button mini" @route="section.delete" @model={{section.id}}>Supprimer une section</LinkTo>
+                <LinkTo class="ui button mini" @route="section.edit" @model={{section.id}}>Editer une section</LinkTo>
+            </div>
+        </div>
+    {{/each}}
 </div>
 
-{{outlet}}
+<ul>
+
+</ul>
