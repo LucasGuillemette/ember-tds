@@ -1,9 +1,9 @@
-import Model, { attr } from '@ember-data/model';
+import Model, { attr, belongsTo } from '@ember-data/model';
 
 export default class ProductModel extends Model {
   @attr('string') name;
   @attr('string') price;
-  @attr('string') section;
+  @belongsTo('section') section;
   @attr('string') promotion;
 
 }
